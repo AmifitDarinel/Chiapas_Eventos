@@ -1,33 +1,26 @@
 import CountBtn from "@/components/ui/count-btn";
 import ReactSVG from "@/assets/images/react.svg";
 import { Badge } from "@/components/ui/badge";
-import SocialBar from "@/components/Organisms/social-bar";
 import { Link } from "react-router-dom";
-
+import SocialBar from "@/components/Organisms/social-bar";
+import Header from "@/components/Organisms/header";
+import MainSection from "@/components/Organisms/main-slider";
+import Advantages from "@/components/Organisms/advantages";
+import Goals from "@/components/Organisms/goals";
+import Gallery from "@/components/Organisms/gallery";
+import Partners from "@/components/Organisms/Partners";
+import Footer from "@/components/Organisms/footer";
 function HomePage() {
   return (
     <>
       <SocialBar/>
-    <main className="flex flex-col items-center justify-center h-screen">
-      <div className="flex flex-col items-center gap-y-4">
-        <div className="inline-flex items-center gap-x-4">
-          <img src={ReactSVG} alt="React Logo" className="w-32" />
-          <span className="text-6xl">+</span>
-          <img src={"/vite.svg"} alt="Vite Logo" className="w-32" />
-        </div>
-        <a
-          href="https://github.com/shadcn/ui"
-          rel="noopener noreferrer nofollow"
-          target="_blank"
-        >
-          <Badge variant="outline">shadcn/ui</Badge>
-        </a>
-        <CountBtn />
-        <Link to="/page2" className="text-blue-500 underline">
-          Go to Page 2
-        </Link>
-      </div>
-    </main>
+      <Header/>
+      <MainSection/>
+      <Advantages/>
+      <Goals/>
+      <Gallery/>
+      <Partners/>
+      <Footer/>
     </>
   );
 }
