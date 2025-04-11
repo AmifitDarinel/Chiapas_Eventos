@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
 @layer base {
   :root {
+
+    --font-gramona: 'Cormorant Garamond', serif;
+
+
+
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
 
@@ -85,6 +94,10 @@
     --chart-4: 280 65% 60%;
 
     --chart-5: 340 75% 55%;
+  }
+
+   body {
+    font-family: var(--font-gramona);
   }
 }
 
