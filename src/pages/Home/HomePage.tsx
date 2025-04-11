@@ -1,10 +1,13 @@
 import CountBtn from "@/components/ui/count-btn";
 import ReactSVG from "@/assets/images/react.svg";
 import { Badge } from "@/components/ui/badge";
+import SocialBar from "@/components/Organisms/social-bar";
 import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
+    <>
+      <SocialBar/>
     <main className="flex flex-col items-center justify-center h-screen">
       <div className="flex flex-col items-center gap-y-4">
         <div className="inline-flex items-center gap-x-4">
@@ -25,6 +28,7 @@ function HomePage() {
         </Link>
       </div>
     </main>
+    </>
   );
 }
 
