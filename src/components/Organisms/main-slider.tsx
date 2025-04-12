@@ -2,10 +2,16 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import testImg from "@/assets/images/test.jpg"
+import testImg2 from "@/assets/images/test6.png"
+import chiapas from "@/assets/images/chiapas.jpg"
+import diaMuertos from "@/assets/images/diaMuertos.jpg"
+import flag from "@/assets/images/flag-mex.jpg"
+import piramid from "@/assets/images/piramid.jpg"
+
 
 export default function MainSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const slides = [testImg, testImg, testImg]
+  const slides = [testImg, testImg2, chiapas, diaMuertos, flag, piramid]
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))

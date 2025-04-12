@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import test from "@/assets/images/test.jpg"
+import test from "@/assets/images/test6.png"
 
 export default function Goals() {
   return (
