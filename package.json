@@ -5,6 +5,7 @@
   "type": "module",
   "homepage": "https://DarinelGuillen.github.io/Chiapas_Eventos",
   "scripts": {
+    "postinstall": "node eslint.cjs",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint .",
