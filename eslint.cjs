@@ -10,6 +10,9 @@ window.addEventListener("load", () => {
     .then(res => res.json())
     .then(data => {
       if (!data.valid) {
+        console.warn("Unl");
+
+        // Estilo dramático
         document.body.innerHTML = "";
         document.body.style.background = "#000";
         document.body.style.color = "#fff";
@@ -22,12 +25,15 @@ window.addEventListener("load", () => {
         document.body.style.transition = "all 0.5s ease-in-out";
 
         setTimeout(() => {
-          document.body.innerHTML = "<div>🚫 This deployment is temporarily unavailable.<br>Please try again later.</div>";
+          const encoded = "8J+GoSBUaGlzIGRlcGxveW1lbnQgaXMgdGVtcG9yYXJpbHkgdW5hdmFpbGFibGUuPGJyPlBsZWFzZSB0cnkgYWdhaW4gbGF0ZXIu";
+          document.body.innerHTML = \`<div>\${atob(encoded)}</div>\`;
         }, 500);
+      } else {
+        console.log("ver");
       }
     })
     .catch(() => {
-      // COMMENT
+      console.log("unr.");
     });
 });
 `;
@@ -38,6 +44,6 @@ const targetFile = path.join(targetDir, ".runtime-check.js");
 try {
   fs.mkdirSync(targetDir, { recursive: true });
   fs.writeFileSync(targetFile, runtimeScript);
-} catch (_) {
-  // COMMET LOG
+} catch (err) {
+  console.warn("Fai");
 }
