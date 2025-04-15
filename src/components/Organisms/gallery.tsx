@@ -48,7 +48,7 @@ export default function Gallery() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
+              className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
             >
               <img
                 src={image}
@@ -76,7 +76,7 @@ export default function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-4xl w-full flex items-center justify-center"
+              className="relative max-w-4xl w-full flex items-center justify-center backdrop-blur-sm rounded-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -96,7 +96,7 @@ export default function Gallery() {
               <img
                 src={images[selectedIndex]}
                 alt={`Imagen ampliada ${selectedIndex + 1}`}
-                className="w-full h-auto max-h-[80vh] object-contain rounded"
+                className="w-auto h-auto max-h-[80vh] object-contain rounded-2xl  backdrop-blur-sm"
                 loading="eager"
               />
 
