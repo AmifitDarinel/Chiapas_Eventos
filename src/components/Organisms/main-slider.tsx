@@ -3,14 +3,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
-import testImg from "@/assets/images/test.jpg"
-import testImg2 from "@/assets/images/test6.png"
 import chiapas from "@/assets/images/chiapas.jpg"
 import diaMuertos from "@/assets/images/diaMuertos.jpg"
-import flag from "@/assets/images/flag-mex.jpg"
 import piramid from "@/assets/images/piramid.jpg"
+import jaguar from "@/assets/images/jaguar.jpg"
+import panoramic from "@/assets/images/panoramic.jpg"
 
-const slides = [testImg, testImg2, chiapas, diaMuertos, flag, piramid]
+const slides = [chiapas, diaMuertos, piramid, jaguar, panoramic]
+
 
 export default function MainSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
