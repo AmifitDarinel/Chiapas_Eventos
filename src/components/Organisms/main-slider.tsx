@@ -59,7 +59,7 @@ export default function MainSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="text-3xl md:text-5xl font-extrabold italic font-gramona tracking-wide mb-6 leading-tight drop-shadow-lg"
+          className="text-3xl md:text-5xl lg:text-6xl font-extrabold italic font-gramona tracking-wide mb-6 leading-tight drop-shadow-lg"
         >
           Descubre los próximos<br className="hidden md:block" /> eventos en Chiapas
         </motion.h2>

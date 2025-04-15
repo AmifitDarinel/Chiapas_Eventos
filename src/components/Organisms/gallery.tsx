@@ -6,12 +6,13 @@ import chiapas from "@/assets/images/chiapas.jpg"
 import diaMuertos from "@/assets/images/diaMuertos.jpg"
 import piramid from "@/assets/images/piramid.jpg"
 import jaguar from "@/assets/images/jaguar.jpg"
+import jaguar2 from "@/assets/images/jaguar2.jpg"
 import panoramic from "@/assets/images/panoramic.jpg"
 
 
 
 export default function Gallery() {
-  const images = [chiapas, diaMuertos, piramid, jaguar, panoramic]
+  const images = [jaguar2, chiapas, diaMuertos, piramid, jaguar, panoramic]
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const handleClose = () => setSelectedIndex(null)
@@ -26,7 +27,7 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="text-3xl md:text-4xl font-extrabold text-white text-center mb-14 tracking-wide uppercase"
+          className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center mb-14 tracking-wide uppercase"
         >
           Galería
         </motion.h2>

@@ -18,7 +18,7 @@ export default function Advantages() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.4 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12"
         >
           <span className="text-green-800">NUESTRAS </span>
           <span className="text-orange-600">VENTAJAS</span>

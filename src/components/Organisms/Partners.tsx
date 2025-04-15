@@ -7,6 +7,14 @@ import logo4 from "@/assets/images/logo4.png"
 import logo5 from "@/assets/images/logo5.png"
 
 export default function Partners() {
+  const partnerLinks = [
+    "https://amifit.mx/",
+    null,
+    "https://taquillerodigital.com/",
+    "https://carreradelashortensias.com/",
+    null
+  ]
+
   const logos = [logo1, logo2, logo3, logo4, logo5]
 
   return (
@@ -23,16 +31,8 @@ export default function Partners() {
         }}
         className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 max-w-screen-xl mx-auto"
       >
-        {logos.map((logo, index) => (
-          <motion.div
-            key={index}
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="w-36 md:w-40 flex items-center justify-center"
-          >
+        {logos.map((logo, index) => {
+          const content = (
             <motion.img
               src={logo}
               alt={`Logo ${index + 1}`}
@@ -43,8 +43,28 @@ export default function Partners() {
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
             />
-          </motion.div>
-        ))}
+          )
+
+          return (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="w-36 md:w-40 flex items-center justify-center"
+            >
+              {partnerLinks[index] ? (
+                <a href={partnerLinks[index]} target="_blank" rel="noopener noreferrer">
+                  {content}
+                </a>
+              ) : (
+                content
+              )}
+            </motion.div>
+          )
+        })}
       </motion.div>
     </section>
   )
