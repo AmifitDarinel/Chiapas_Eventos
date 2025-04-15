@@ -5,7 +5,7 @@ import { resolve } from "path";
 
 export default defineConfig({
 
-  base: "/Chiapas_Eventos/",
+  base: "/",
   plugins: [react()],
   resolve: {
     alias: {

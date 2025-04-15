@@ -1,7 +1,4 @@
-import CountBtn from "@/components/ui/count-btn";
-import ReactSVG from "@/assets/images/react.svg";
-import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import SocialBar from "@/components/Organisms/social-bar";
 import Header from "@/components/Organisms/header";
 import MainSection from "@/components/Organisms/main-slider";
@@ -10,17 +7,41 @@ import Goals from "@/components/Organisms/goals";
 import Gallery from "@/components/Organisms/gallery";
 import Partners from "@/components/Organisms/Partners";
 import Footer from "@/components/Organisms/footer";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
+
 function HomePage() {
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  useSmoothScroll();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <>
-      <SocialBar/>
-      <Header/>
-      <MainSection/>
-      <Advantages/>
-      <Goals/>
-      <Gallery/>
-      <Partners/>
-      <Footer/>
+      <div className="fixed top-0 left-0 right-0 z-50 h-[56px] ">
+        <SocialBar visible={!showHeader} />
+        <Header visible={showHeader} />
+      </div>
+
+      <MainSection />
+      <Advantages />
+      <Goals />
+      <Gallery />
+      <Partners />
+      <Footer />
     </>
   );
 }

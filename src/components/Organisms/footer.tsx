@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom"
 import { Facebook, Instagram } from "lucide-react"
+import { motion } from "framer-motion"
 import logo from "@/assets/images/logo7.png"
 
 export default function Footer() {
   return (
-    <footer className="bg-green-900 text-white py-10 px-6">
+    <motion.footer
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.3 }}
+      className="bg-green-900 text-white py-10 px-6"
+    >
       <div className="container mx-auto flex flex-col gap-10 sm:gap-8 sm:flex-col md:flex-row md:items-center md:justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3 justify-center md:justify-start">
@@ -32,22 +39,26 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <span className="text-sm">Síguenos en</span>
           <div className="flex gap-3">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.15 }}
+              transition={{ type: "spring", stiffness: 300 }}
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-600 p-2 rounded-full hover:bg-red-700 transition"
             >
               <Facebook size={18} />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15 }}
+              transition={{ type: "spring", stiffness: 300 }}
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-600 p-2 rounded-full hover:bg-red-700 transition"
             >
               <Instagram size={18} />
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>
@@ -55,6 +66,6 @@ export default function Footer() {
       <div className="container mx-auto mt-8 text-center text-xs text-green-200">
         © {new Date().getFullYear()} Chiapas Eventos. Todos los derechos reservados.
       </div>
-    </footer>
+    </motion.footer>
   )
 }
