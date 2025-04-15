@@ -7,10 +7,12 @@ import Goals from "@/components/Organisms/goals";
 import Gallery from "@/components/Organisms/gallery";
 import Partners from "@/components/Organisms/Partners";
 import Footer from "@/components/Organisms/footer";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 function HomePage() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  useSmoothScroll();
 
   useEffect(() => {
     const handleScroll = () => {
