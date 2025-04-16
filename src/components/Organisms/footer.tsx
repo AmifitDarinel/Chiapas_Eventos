@@ -6,12 +6,13 @@ import logo from "@/assets/images/logo7.png"
 export default function Footer() {
   return (
     <motion.footer
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.3 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      viewport={{ once: true }}
       className="bg-green-900 text-white py-10 px-6"
     >
+
       <div className="container mx-auto flex flex-col gap-10 sm:gap-8 sm:flex-col md:flex-row md:items-center md:justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3 justify-center md:justify-start">

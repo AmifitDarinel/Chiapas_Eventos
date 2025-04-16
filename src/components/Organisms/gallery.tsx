@@ -2,17 +2,14 @@ import { useState } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-import chiapas from "@/assets/images/chiapas.jpg"
 import diaMuertos from "@/assets/images/diaMuertos.jpg"
 import piramid from "@/assets/images/piramid.jpg"
 import jaguar from "@/assets/images/jaguar.jpg"
 import jaguar2 from "@/assets/images/jaguar2.jpg"
 import panoramic from "@/assets/images/panoramic.jpg"
 
-
-
 export default function Gallery() {
-  const images = [jaguar2, chiapas, diaMuertos, piramid, jaguar, panoramic]
+  const images = [jaguar2, diaMuertos, piramid, jaguar, panoramic]
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const handleClose = () => setSelectedIndex(null)
@@ -23,44 +20,33 @@ export default function Gallery() {
     <section className="py-20 px-4 bg-[#EA4326]">
       <div className="container mx-auto max-w-screen-xl">
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.3 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true }}
           className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center mb-14 tracking-wide uppercase"
         >
           Galería
         </motion.h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={{
-            visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-            hidden: { opacity: 0 },
-          }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {images.map((image, index) => (
-            <motion.div
+            <div
               key={index}
               onClick={() => setSelectedIndex(index)}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
               className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
             >
               <img
                 src={image}
                 alt={`Imagen de galería ${index + 1}`}
                 loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -69,16 +55,12 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
             onClick={handleClose}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-4xl w-full flex items-center justify-center backdrop-blur-sm rounded-2xl"
+            <div
+              className="relative max-w-4xl w-full flex items-center justify-center rounded-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -98,8 +80,10 @@ export default function Gallery() {
               <img
                 src={images[selectedIndex]}
                 alt={`Imagen ampliada ${selectedIndex + 1}`}
-                className="w-auto h-auto max-h-[80vh] object-contain rounded-2xl  backdrop-blur-sm"
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="w-auto h-auto max-h-[80vh] object-contain rounded-2xl"
               />
 
               <button
@@ -108,7 +92,7 @@ export default function Gallery() {
               >
                 <ChevronRight size={36} />
               </button>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
